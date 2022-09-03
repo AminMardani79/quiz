@@ -26,14 +26,19 @@ const QuestionCard: React.FC<PropTypes> = ({
       <p dangerouslySetInnerHTML={{ __html: sanitizeHtml(question) }} />
       <div>
         {answers.map((answer) => (
-          <button
-            className="answer_btn"
-            disabled={userAnswer}
-            type="button"
-            onClick={callback}
-          >
-            <span dangerouslySetInnerHTML={{ __html: sanitizeHtml(answer) }} />
-          </button>
+          <div key={answer}>
+            <button
+              className="answer_btn"
+              disabled={userAnswer}
+              type="button"
+              onClick={callback}
+              value={answer}
+            >
+              <span
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(answer) }}
+              />
+            </button>
+          </div>
         ))}
       </div>
     </div>
