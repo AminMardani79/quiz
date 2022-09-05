@@ -8,6 +8,7 @@ import { fetchQuizQuestions } from "./services/api";
 import { GlobalStyle, QuizWrapper } from "./App.styles";
 // types
 import { Difficulty, QuestionState } from "./services/api";
+import StartForm from "./components/StartForm";
 export interface AnswerObject {
   question: string;
   answer: string;
@@ -66,13 +67,11 @@ function App() {
       <GlobalStyle />
       <QuizWrapper>
         <h1 className="quiz_header">Quiz App</h1>
-        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className="start_btn" type="button" onClick={startQuiz}>
-            Start
-          </button>
+        {(gameOver || userAnswers.length === TOTAL_QUESTIONS) && !loading ? (
+          <StartForm startQuiz={startQuiz} />
         ) : null}
-        {!gameOver && !loading && <p className="score">Score is : {score}</p>}
         {loading && <Loader />}
+        {!gameOver && !loading && <p className="score">Score is : {score}</p>}
         {!loading && !gameOver && (
           <QuestionCard
             callback={checkAnswer}

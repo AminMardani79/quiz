@@ -48,6 +48,7 @@ export const QuizWrapper = styled.div`
     color: #743f25;
     font-weight: 700;
     transition: all 0.1s linear;
+    background-color: #fff;
   }
   .next_btn {
     align-self: flex-end;
@@ -61,5 +62,33 @@ export const QuizWrapper = styled.div`
   .next_btn:hover {
     background-color: #82543f;
     color: #fff;
+  }
+  .start_btn {
+    margin-top: 10px;
+  }
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  select,
+  input {
+    width: 200px;
+    border: 1px solid #743f25;
+    border-radius: 4px;
+    padding: 4px 6px;
+  }
+  input:focus,
+  select:focus {
+    outline: 1px solid #743f25;
+  }
+
+  label {
+    color: #743f25;
+    font-weight: 700;
+    margin-top: 6px;
   }
 `;
