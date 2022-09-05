@@ -1,6 +1,6 @@
 import { shuffleArray } from "../util/utils";
 
-export type Question = {
+export interface Question{
     category:string;
     correct_answer:string;
     difficulty:string;
@@ -9,7 +9,9 @@ export type Question = {
     type:string
 }
 
-export type QuestionState = Question & {answers:string[]}
+export interface QuestionState extends Question{
+    answers:string[]
+}
 
 export enum Difficulty{
     EASY = "easy",
