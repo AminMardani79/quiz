@@ -26,15 +26,24 @@ export const QuizWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 60px;
   .quiz_header {
     color: #743f25;
     font-weight: 900;
     font-size: 3.3rem;
   }
+  @media screen and (max-width: 992px) {
+    .quiz_header {
+      font-size: 2.6rem;
+      padding-top: 15px;
+      margin-bottom: 0;
+    }
+  }
   .score {
     color: #824d33;
     font-size: 25px;
     font-weight: 700;
+    margin-top: 0;
   }
   .start_btn,
   .next_btn {
@@ -74,16 +83,32 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
   gap: 6px;
-  select,
   input {
-    width: 200px;
+    width: 300px;
+    height: 38px;
     border: 1px solid #743f25;
     border-radius: 4px;
     padding: 4px 6px;
   }
-  input:focus,
-  select:focus {
-    outline: 1px solid #743f25;
+  input:focus {
+    outline: 1px solid #2684ff;
+    border-color: #2684ff;
+  }
+  .select_list {
+    width: 300px;
+    border: 1px solid #743f25;
+    border-radius: 4px;
+    padding: 0;
+    .css-6j8wv5-Input {
+      padding: 0;
+      margin: 0;
+    }
+    .css-319lph-ValueContainer {
+      padding: 0 6px;
+    }
+    .css-1s2u09g-control {
+      box-shadow: none !important;
+    }
   }
 
   label {
