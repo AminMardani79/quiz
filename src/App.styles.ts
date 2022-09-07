@@ -96,6 +96,17 @@ export const QuizWrapper = styled.div`
       font-weight: 600;
     }
   }
+  @media screen and (max-width: 674px) {
+    .next_btn {
+      margin-right: 0.7rem;
+    }
+    .score {
+      font-size: 22px;
+    }
+    .count_down {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const Form = styled.form`

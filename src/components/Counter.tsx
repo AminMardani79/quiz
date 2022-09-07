@@ -9,7 +9,11 @@ interface ICounterProps {
 function Counter({ onTimeOver }: ICounterProps) {
   const { count } = useStateContext();
   return (
-    <Countdown date={Date.now() + 60000 * count} onComplete={onTimeOver} />
+    <Countdown
+      className="count_down"
+      date={Date.now() + 60000 * count}
+      onComplete={onTimeOver}
+    />
   );
 }
 

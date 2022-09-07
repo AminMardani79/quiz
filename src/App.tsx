@@ -66,7 +66,7 @@ function App() {
     setGameOver(true);
     Swal.fire({
       title: "Oops!",
-      text: `Time is Over. Your score is ${score}`,
+      text: `Time is Over. Your score is ${score} / ${count}`,
       icon: "warning",
       confirmButtonText: "Ok",
     });
@@ -77,7 +77,7 @@ function App() {
       setGameOver(true);
       Swal.fire({
         title: "Oops!",
-        text: `Quiz is finished. Your score is ${score}`,
+        text: `Quiz is finished. Your score is ${score} / ${count}`,
         icon: "success",
         confirmButtonText: "Ok",
       });

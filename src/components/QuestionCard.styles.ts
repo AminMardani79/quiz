@@ -7,7 +7,7 @@ type ButtonProps = {
 };
 
 export const CardWrapper = styled.div`
-  padding: 25px 30px;
+  padding: 25px 20px;
   border-radius: 6px;
   background-color: #fff;
   .question_number {
@@ -24,10 +24,14 @@ export const CardWrapper = styled.div`
     font-weight: 600;
     flex-wrap: wrap;
     gap: 7px;
+    font-size: 14px;
   }
   p {
     color: #743f25;
     font-weight: 700;
+  }
+  @media screen and (max-width: 674px) {
+    padding: 25px 10px;
   }
 `;
 
