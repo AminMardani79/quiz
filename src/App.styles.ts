@@ -82,6 +82,20 @@ export const QuizWrapper = styled.div`
     margin-bottom: 15px;
     text-shadow: 3px 3px 5px #fff;
   }
+  .header_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 10px;
+    .timer {
+      margin-bottom: 0;
+      color: #743f25;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
 `;
 
 export const Form = styled.form`

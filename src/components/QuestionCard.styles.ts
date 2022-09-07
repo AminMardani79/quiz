@@ -22,6 +22,8 @@ export const CardWrapper = styled.div`
     justify-content: space-between;
     color: #743f25;
     font-weight: 600;
+    flex-wrap: wrap;
+    gap: 7px;
   }
   p {
     color: #743f25;

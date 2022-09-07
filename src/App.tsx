@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 // components
 import QuestionCard from "./components/QuestionCard";
 import Loader from "./components/Loader";
+import Swal from "sweetalert2";
 // api
 import { fetchQuizQuestions } from "./services/api";
 // styles
@@ -10,6 +11,7 @@ import { GlobalStyle, QuizWrapper } from "./App.styles";
 import { QuestionState } from "./services/api";
 import StartForm from "./components/StartForm";
 import { useStateContext } from "./contexts/ContextProvider";
+import Counter from "./components/Counter";
 export interface AnswerObject {
   question: string;
   answer: string;
@@ -57,9 +59,31 @@ function App() {
     setUserAnswers((prev) => [...prev, answerObject]);
   };
   const nextQuestion = () => {
-    const nextNumber = number + 1;
-    nextNumber === count ? setGameOver(true) : setNumber(nextNumber);
+    setNumber((prev) => prev + 1);
   };
+
+  const timeOver = useCallback(() => {
+    setGameOver(true);
+    Swal.fire({
+      title: "Oops!",
+      text: `Time is Over. Your score is ${score}`,
+      icon: "warning",
+      confirmButtonText: "Ok",
+    });
+  }, [gameOver]);
+
+  useEffect(() => {
+    if (userAnswers.length === count) {
+      setGameOver(true);
+      Swal.fire({
+        title: "Oops!",
+        text: `Quiz is finished. Your score is ${score}`,
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+    }
+  }, [userAnswers]);
+
   return (
     <>
       <GlobalStyle />
@@ -71,7 +95,12 @@ function App() {
         {loading && <Loader />}
         {!loading && !gameOver && !!questions.length && (
           <>
-            <p className="score">Score is : {score}</p>
+            <div className="header_info">
+              <p className="score">Score is : {score}</p>
+              <p className="timer">
+                <Counter onTimeOver={timeOver} />
+              </p>
+            </div>
             <QuestionCard
               callback={checkAnswer}
               question={questions[number].question}
@@ -84,7 +113,7 @@ function App() {
         )}
         {!loading && !questions.length && !gameOver && (
           <>
-            <div className="no_question_found">No question found</div>
+            <p className="no_question_found">No question found</p>
             <StartForm startQuiz={startQuiz} />
           </>
         )}
