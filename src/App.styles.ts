@@ -75,6 +75,13 @@ export const QuizWrapper = styled.div`
   .start_btn {
     margin-top: 10px;
   }
+  .no_question_found {
+    color: #d61411;
+    font-weight: 800;
+    font-size: 25px;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 5px #fff;
+  }
 `;
 
 export const Form = styled.form`

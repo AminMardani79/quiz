@@ -1,4 +1,8 @@
-import { Difficulty } from "../services/api";
+export enum Difficulty {
+  EASY = "easy",
+  MEDIUM = "medium",
+  HARD = "hard",
+}
 export const DifficultyOptions = [
   { value: Difficulty.EASY, label: Difficulty.EASY },
   { value: Difficulty.MEDIUM, label: Difficulty.MEDIUM },

@@ -84,7 +84,7 @@ function App() {
         )}
         {!loading && !questions.length && !gameOver && (
           <>
-            <div>not found</div>
+            <div className="no_question_found">No question found</div>
             <StartForm startQuiz={startQuiz} />
           </>
         )}
