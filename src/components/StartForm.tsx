@@ -1,6 +1,6 @@
 import React from "react";
 import Select, { SingleValue } from "react-select";
-import { DifficultyOptions } from "../data/data";
+import { CategoryOptions, DifficultyOptions } from "../data/data";
 // context
 import { useStateContext } from "../contexts/ContextProvider";
 // styles
@@ -13,15 +13,18 @@ export type SelectType = {
   label: string;
   value: string;
 };
-
 function StartForm({ startQuiz }: IFormProps) {
-  const { count, setCount, difficulty, setDifficulty } = useStateContext();
+  const { count, setCount, difficulty, setDifficulty, category, setCategory } =
+    useStateContext();
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     let number = +e.target.value;
     number <= 50 && number >= 1 ? setCount(number) : setCount(10);
   };
   const difficultyChange = (selectedOption: SingleValue<SelectType>) => {
     setDifficulty(selectedOption as SelectType);
+  };
+  const categoryChange = (selectedOption: SingleValue<SelectType>) => {
+    setCategory(selectedOption as SelectType);
   };
   return (
     <Form>
@@ -41,7 +44,12 @@ function StartForm({ startQuiz }: IFormProps) {
         <div>
           <label>Category : </label>
         </div>
-        <Select className="select_list" />
+        <Select
+          className="select_list"
+          defaultValue={category}
+          options={CategoryOptions}
+          onChange={categoryChange}
+        />
       </div>
       <div>
         <div>

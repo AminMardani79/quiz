@@ -43,7 +43,7 @@ export const QuizWrapper = styled.div`
     color: #824d33;
     font-size: 25px;
     font-weight: 700;
-    margin-top: 0;
+    margin-bottom: 0;
   }
   .start_btn,
   .next_btn {

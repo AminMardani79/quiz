@@ -18,7 +18,7 @@ export interface AnswerObject {
 }
 
 function App() {
-  const { count, difficulty } = useStateContext();
+  const { count, difficulty, category } = useStateContext();
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
@@ -26,13 +26,15 @@ function App() {
   const [number, setNumber] = useState(0);
   const [score, setScore] = useState(0);
 
-  console.log(questions.length, loading);
-
   const startQuiz = async () => {
     setLoading(true);
     setGameOver(false);
 
-    const newQuestions = await fetchQuizQuestions(count, difficulty.value);
+    const newQuestions = await fetchQuizQuestions(
+      count,
+      difficulty.value,
+      category.value
+    );
     setQuestions(newQuestions);
     setUserAnswers([]);
     setNumber(0);

@@ -17,6 +17,12 @@ export const CardWrapper = styled.div`
     border-radius: 5px;
     color: #fff;
   }
+  .quiz_info {
+    display: flex;
+    justify-content: space-between;
+    color: #743f25;
+    font-weight: 600;
+  }
   p {
     color: #743f25;
     font-weight: 700;

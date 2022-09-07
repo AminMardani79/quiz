@@ -2,6 +2,7 @@ import React from "react";
 import sanitizeHtml from "sanitize-html";
 // types
 import { AnswerObject } from "../App";
+import { useStateContext } from "../contexts/ContextProvider";
 // styles
 import { ButtonWrapper, CardWrapper } from "./QuestionCard.styles";
 type PropTypes = {
@@ -21,8 +22,13 @@ const QuestionCard: React.FC<PropTypes> = ({
   callback,
   userAnswer,
 }) => {
+  const { category, difficulty } = useStateContext();
   return (
     <CardWrapper>
+      <div className="quiz_info">
+        <span>Category : {category.label}</span>
+        <span>Difficulty : {difficulty.label}</span>
+      </div>
       <p className="question_number">
         Question : {questionNumber} / {totalQuestions}
       </p>

@@ -21,9 +21,15 @@ export enum Difficulty {
 
 export const fetchQuizQuestions = async (
   amount: number,
-  difficulty: string
+  difficulty: string,
+  category: string
 ) => {
-  const endPoint = `${process.env.REACT_APP_API_URL}?amount=${amount}&difficulty=${difficulty}&category=19&type=multiple`;
+  const endPoint = `${
+    process.env.REACT_APP_API_URL
+  }?amount=${amount}&difficulty=${difficulty}${
+    category !== "any" ? `&category=${category}` : ""
+  }&type=multiple`;
+
   const data = await (await fetch(endPoint)).json();
   return data.results.map((question: Question) => ({
     ...question,
